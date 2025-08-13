@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Armando & Ana</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aboreto&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aboreto&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="hero" style="background-image: url('images/slide2.webp')">
+      <div class="overlay"></div>
+      <div class="hero-inner">
+        <div class="pretitle">¡NOS CASAMOS!</div>
+
+        <h1 class="names">Armando <span>&amp;</span> Ana</h1>
+
+        <!-- Countdown -->
+        <div class="countdown" role="timer" aria-live="polite">
+          <div class="timecard">
+            <div class="num" id="days">--</div>
+            <div class="label">Días</div>
+          </div>
+          <div class="timecard">
+            <div class="num" id="hours">--</div>
+            <div class="label">Horas</div>
+          </div>
+          <div class="timecard">
+            <div class="num" id="minutes">--</div>
+            <div class="label">Minutos</div>
+          </div>
+          <div class="timecard">
+            <div class="num" id="seconds">--</div>
+            <div class="label">Segundos</div>
+          </div>
+        </div>
+
+        <!-- Fecha centrada con líneas -->
+        <div class="event-date">11 DE OCTUBRE 2025 — 17:00 HRS</div>
+
+        <!-- Play button -->
+        <div>
+          <button
+            id="music-toggle"
+            class="play-btn"
+            aria-pressed="false"
+            aria-label="Reproducir música"
+          >
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+              <path id="play-icon" fill="currentColor" d="M8 5v14l11-7z"></path>
+              <path
+                id="pause-icon"
+                fill="currentColor"
+                d="M6 5h4v14H6zM14 5h4v14h-4z"
+                style="display: none"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- audio (reemplaza por tu canción) -->
+      <audio
+        id="bg-audio"
+        loop
+        preload="none"
+        src="audio/Melendi-La-Promesa.mp3"
+      ></audio>
+    </header>
+    <section class="blessing-section">
+      <h2>Con la bendición de Dios y de nuestros padres</h2>
+      <div class="parents">
+        <div class="parent-side">
+          <p>Armando Castro Reyes</p>
+          <p>Margarita Mendez Lopez</p>
+        </div>
+        <div class="ampersand">&amp;</div>
+        <div class="parent-side">
+          <p>Jorge Enriquez</p>
+          <p>Maria Contreras Osorio</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="welcome">
+  <div class="welcome-content">
+    <h2>Nuestra Historia</h2>
+    <p>
+      Un día como hoy, nuestros caminos se cruzaron y comenzó esta aventura que
+      hoy celebramos contigo. Estamos felices de compartir este momento especial
+      junto a nuestras familias y amigos.
+    </p>
+  </div>
+</section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
