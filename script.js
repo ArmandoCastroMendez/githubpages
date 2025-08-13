@@ -1,0 +1,92 @@
+// ====== CONFIG ======
+const TARGET = new Date('Oct 11, 2025 17:00:00').getTime(); // <-- fecha objetivo
+// ====================
+
+/* Countdown */
+const $d = document.getElementById('days');
+const $h = document.getElementById('hours');
+const $m = document.getElementById('minutes');
+const $s = document.getElementById('seconds');
+
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function updateCountdown() {
+    const now = Date.now();
+    const diff = TARGET - now;
+
+    if (diff <= 0) {
+        $d.textContent = '00';
+        $h.textContent = '00';
+        $m.textContent = '00';
+        $s.textContent = '00';
+        clearInterval(interval);
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    // Actualiza y añade pequeña animación si cambia
+    setWithAnim($d, days);
+    setWithAnim($h, hours);
+    setWithAnim($m, minutes);
+    setWithAnim($s, seconds);
+}
+
+function setWithAnim(el, value) {
+    const newText = pad(value);
+    if (el.textContent !== newText) {
+        el.textContent = newText;
+        el.classList.remove('pop');
+        // reflow para reiniciar la anim
+        void el.offsetWidth;
+        el.classList.add('pop');
+        // quita la clase luego para permitir repetir anim
+        setTimeout(() => el.classList.remove('pop'), 600);
+    }
+}
+
+// clase pop (agregar dinámicamente)
+const style = document.createElement('style');
+style.textContent = `.pop{ transform: translateY(-6px) scale(1.02); transition: transform .48s cubic-bezier(.2,.9,.3,1); }`;
+document.head.appendChild(style);
+
+updateCountdown();
+const interval = setInterval(updateCountdown, 1000);
+
+/* Música: toggle play/pause */
+const audio = document.getElementById('bg-audio');
+const btn = document.getElementById('music-toggle');
+const playIcon = document.getElementById('play-icon');
+const pauseIcon = document.getElementById('pause-icon');
+
+btn.addEventListener('click', async () => {
+    // try to play (some browsers require user interaction)
+    if (audio.paused) {
+        try {
+            await audio.play();
+            btn.setAttribute('aria-pressed', 'true');
+            // swap svg paths
+            if (playIcon) playIcon.style.display = 'none';
+            if (pauseIcon) pauseIcon.style.display = 'block';
+        } catch (e) {
+            // fallback: visually toggle
+            btn.setAttribute('aria-pressed', 'true');
+            if (playIcon) playIcon.style.display = 'none';
+            if (pauseIcon) pauseIcon.style.display = 'block';
+        }
+    } else {
+        audio.pause();
+        btn.setAttribute('aria-pressed', 'false');
+        if (playIcon) playIcon.style.display = 'block';
+        if (pauseIcon) pauseIcon.style.display = 'none';
+    }
+});
+
+// accesibilidad: tecla espacio/enter cuando el botón tiene focus
+btn.addEventListener('keydown', (ev) => {
+    if (ev.key === ' ' || ev.key === 'Enter') { ev.preventDefault(); btn.click(); }
+});
+
