@@ -1,6 +1,26 @@
 // ====== CONFIG ======
-const TARGET = new Date('Oct 11, 2025 17:00:00').getTime(); // <-- fecha objetivo
+const TARGET = new Date('Oct 11, 2025 14:00:00').getTime(); // <-- fecha objetivo
 // ====================
+
+// Carrusel automático
+const slides = document.querySelectorAll('.carousel-slide');
+let currentIndex = 0;
+
+function changeSlide() {
+    slides[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % slides.length;
+    slides[currentIndex].classList.add('active');
+}
+
+setInterval(changeSlide, 5000); // cambia cada 5s
+
+document.addEventListener("DOMContentLoaded", () => {
+    AOS.init({
+        once: true,
+        duration: 1000
+    });
+});
+
 
 /* Countdown */
 const $d = document.getElementById('days');
@@ -85,8 +105,46 @@ btn.addEventListener('click', async () => {
     }
 });
 
+window.addEventListener('DOMContentLoaded', function () {
+    var audio = document.getElementById('bg-audio');
+    audio.play().catch(function () { });
+});
 // accesibilidad: tecla espacio/enter cuando el botón tiene focus
 btn.addEventListener('keydown', (ev) => {
     if (ev.key === ' ' || ev.key === 'Enter') { ev.preventDefault(); btn.click(); }
+});
+
+
+// Inicializa la librería de animaciones AOS
+document.addEventListener("DOMContentLoaded", () => {
+    AOS.init({
+        once: true,       // la animación solo ocurre una vez
+        offset: 100,      // distancia antes de que se active
+        easing: "ease-in-out"
+    });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    AOS.init({
+        once: true,
+        duration: 1000,
+        easing: "ease-in-out"
+    });
+
+    // Animar la línea conforme scroll
+    const line = document.querySelector(".timeline .line::after");
+    const timeline = document.querySelector(".timeline");
+    const lineEl = document.querySelector(".timeline .line");
+
+    window.addEventListener("scroll", () => {
+        const rect = timeline.getBoundingClientRect();
+        const winHeight = window.innerHeight;
+
+        // Calcular progreso
+        let progress = Math.min(1, Math.max(0, (winHeight - rect.top) / (rect.height + winHeight)));
+        lineEl.style.setProperty("--line-progress", progress);
+    });
 });
 

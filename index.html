@@ -4,37 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Armando & Ana</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="shortcut icon" href="images/icon1.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Aboreto&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Lora:ital,wght@0,400..700;1,400..700&family=MonteCarlo&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Aboreto&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Aboreto&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
 
   <body>
-    <header class="hero" style="background-image: url('images/slide2.webp')">
+    <header class="hero">
+      <div class="carousel-container">
+        <div
+          class="carousel-slide active"
+          style="background-image: url('images/carrusel/slide1.webp')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('images/carrusel/slide2.webp')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('images/carrusel/slide5.avif')"
+        ></div>
+        <div
+          class="carousel-slide"
+          style="background-image: url('images/carrusel/slide4.jpeg')"
+        ></div>
+      </div>
       <div class="overlay"></div>
       <div class="hero-inner">
         <div class="pretitle">¡NOS CASAMOS!</div>
-
         <h1 class="names">Armando <span>&amp;</span> Ana</h1>
-
         <!-- Countdown -->
         <div class="countdown" role="timer" aria-live="polite">
           <div class="timecard">
@@ -54,10 +65,8 @@
             <div class="label">Segundos</div>
           </div>
         </div>
-
         <!-- Fecha centrada con líneas -->
-        <div class="event-date">11 DE OCTUBRE 2025 — 17:00 HRS</div>
-
+        <div class="event-date">11 DE OCTUBRE 2025 — 14:00 HRS</div>
         <!-- Play button -->
         <div>
           <button
@@ -77,42 +86,201 @@
             </svg>
           </button>
         </div>
+        <audio
+          id="bg-audio"
+          src="audio/Melendi-La-Promesa.mp3"
+          preload="auto"
+          autoplay
+        ></audio>
+      </div>
+    </header>
+
+    <!-- 🔹 SECCIÓN MI BAUTIZO -->
+    <section class="baptism-section" data-aos="fade-up">
+      <div class="baptism-content">
+        <img
+          src="images/cruz.png"
+          alt="Cruz Bautizo"
+          class="baptism-cross"
+          data-aos="zoom-in"
+          data-aos-delay="300"
+        />
+        <h2>
+          <span class="start-baptism"> ✨</span> NUESTRO BAUTIZO
+          <span class="start-baptism">✨</span>
+        </h2>
+        <h1 class="baptism-names">Ariana & Eduardo</h1>
+      </div>
+    </section>
+
+    <!-- 🔹 SECCIÓN DE FOTOS -->
+    <section class="gallery-section">
+      <h2 data-aos="fade-up" data-aos-duration="1000">NUESTROS MOMENTOS</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-aos="zoom-in" data-aos-duration="1200">
+          <img src="images/moments/1.jpeg" alt="Foto 1" />
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-duration="1300">
+          <img src="images/moments/2.jpeg" alt="Foto 2" />
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-duration="1400">
+          <img src="images/moments/3.jpeg" alt="Foto 3" />
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-duration="1500">
+          <img src="images/moments/4.jpeg" alt="Foto 4" />
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-duration="1600">
+          <img src="images/moments/5.jpeg" alt="Foto 5" />
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-duration="1700">
+          <img
+            src="images/carrusel/487c212b5f51dee4dfec1ed517a71883.jpg"
+            alt="Foto 6"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- 🔹 SECCIÓN DE PADRES -->
+    <section class="blessing-section">
+      <h2 data-aos="fade-down" data-aos-duration="1000">
+        Con la bendición de Dios y de nuestros padres
+      </h2>
+      <div class="parents">
+        <div class="parent-side" data-aos="fade-right" data-aos-duration="1200">
+          <p>Armando Castro Reyes</p>
+          <p>Margarita Méndez López</p>
+        </div>
+        <div class="ampersand" data-aos="zoom-in" data-aos-duration="1500">
+          &amp;
+        </div>
+        <div class="parent-side" data-aos="fade-left" data-aos-duration="1200">
+          <p>Jorge Enríquez de la Luz</p>
+          <p>María Contreras Osorio</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="event-section">
+      <div class="event-card" data-aos="fade-up">
+        <h2 class="event-title">CEREMONIA</h2>
+        <p class="event-hour">14:00 HRS</p>
+        <p class="event-address">Iglesia San Bartolomé Apóstol<br /></p>
+        <a
+          href="https://maps.app.goo.gl/Zqtqpimo8bvzWrLU6"
+          target="_blank"
+          class="event-btn"
+          >Ver ubicación</a
+        >
       </div>
 
-      <!-- audio (reemplaza por tu canción) -->
-      <audio
-        id="bg-audio"
-        loop
-        preload="none"
-        src="audio/Melendi-La-Promesa.mp3"
-      ></audio>
-    </header>
-    <section class="blessing-section">
-      <h2>Con la bendición de Dios y de nuestros padres</h2>
-      <div class="parents">
-        <div class="parent-side">
-          <p>Armando Castro Reyes</p>
-          <p>Margarita Mendez Lopez</p>
+      <div class="event-card" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="event-title">RECEPCIÓN</h2>
+        <p class="event-hour">16:00 HRS</p>
+        <p class="event-address">
+          Calle Emiliano Zapata #53<br />
+          Barrio #1, San Bartolo Teontepec
+        </p>
+        <a
+          href="https://maps.app.goo.gl/LyxTNWzvrjQQcJxW7"
+          target="_blank"
+          class="event-btn"
+          >Ver ubicación</a
+        >
+      </div>
+    </section>
+
+    <section class="photo-gallery">
+      <div class="photo-item up" data-aos="fade-up">
+        <img src="images/us/1.jpeg" alt="Foto 1" />
+      </div>
+      <div class="photo-item down" data-aos="fade-up" data-aos-delay="100">
+        <img src="images/us/2.jpeg" alt="Foto 2" />
+      </div>
+      <div class="photo-item up" data-aos="fade-up" data-aos-delay="200">
+        <img src="images/us/3.jpeg" alt="Foto 3" />
+      </div>
+      <div class="photo-item down" data-aos="fade-up" data-aos-delay="300">
+        <img src="images/us/4.jpeg" alt="Foto 4" />
+      </div>
+      <div class="photo-item up" data-aos="fade-up" data-aos-delay="400">
+        <img src="images/carrusel/slide5.avif" alt="Foto 5" />
+      </div>
+      <div class="photo-item down" data-aos="fade-up" data-aos-delay="500">
+        <img src="images/carrusel/slide6.jpeg" alt="Foto 6" />
+      </div>
+    </section>
+
+    <section class="itinerary-section">
+      <h2 data-aos="fade-up">Itinerario</h2>
+      <div class="timeline">
+        <div class="line"></div>
+
+        <div class="timeline-item" data-aos="fade-up">
+          <div class="timeline-icon">
+            <i class="fas fa-church"></i>
+          </div>
+          <div class="timeline-content">
+            <h3>14:00 HRS</h3>
+            <p>Ceremonia Religiosa</p>
+          </div>
         </div>
-        <div class="ampersand">&amp;</div>
-        <div class="parent-side">
-          <p>Jorge Enriquez</p>
-          <p>Maria Contreras Osorio</p>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-icon">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <div class="timeline-content">
+            <h3>16:00 HRS</h3>
+            <p>Recepción</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-cake-candles"></i>
+          </div>
+          <div class="timeline-content">
+            <h3>19:30 HRS</h3>
+            <p>Pastel y Aguinaldos</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="timeline-icon">
+            <i class="fa-solid fa-wine-glass"></i>
+          </div>
+          <div class="timeline-content">
+            <h3>20:30 HRS</h3>
+            <p>Apertura de barra</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="timeline-icon">
+            <i class="fas fa-music"></i>
+          </div>
+          <div class="timeline-content">
+            <h3>22:00 HRS</h3>
+            <p>Fiesta y Baile</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="welcome">
-  <div class="welcome-content">
-    <h2>Nuestra Historia</h2>
-    <p>
-      Un día como hoy, nuestros caminos se cruzaron y comenzó esta aventura que
-      hoy celebramos contigo. Estamos felices de compartir este momento especial
-      junto a nuestras familias y amigos.
-    </p>
-  </div>
-</section>
+      <div class="welcome-content">
+        <h2>Nuestra Historia</h2>
+        <p>
+          Un día como hoy, nuestros caminos se cruzaron y comenzó esta aventura
+          que hoy celebramos contigo. Estamos felices de compartir este momento
+          especial junto a nuestras familias y amigos.
+        </p>
+      </div>
+    </section>
 
+    <!-- Librería AOS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
