@@ -68,7 +68,7 @@ header {
 
 /* ======== SECCIÓN MI BAUTIZO ======== */
 .baptism-section {
-  background: url('images/fondo-bautizo-azul.jpg') repeat center center/cover;
+  background: url('images/fondo-bautizo.jpg') repeat center center/cover;
   text-align: center;
   padding: 100px 20px;
   font-family: 'Cormorant Garamond', serif;
@@ -266,7 +266,7 @@ header {
 
 /* ======== SECCIÓN BENDICIÓN ======== */
 .blessing-section {
-  background: url('images/pergament-papier.jpg') repeat;
+  background: url('images/fondo-papas.jpg') repeat;
   padding: 70px 70px;
   text-align: center;
 
@@ -599,7 +599,7 @@ header {
   height: 320px;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   scroll-snap-align: center;
   transition: transform 0.4s ease;
 }
@@ -608,6 +608,7 @@ header {
 .photo-item.up {
   margin-top: -30px;
 }
+
 .photo-item.down {
   margin-top: 30px;
 }
@@ -636,130 +637,387 @@ header {
   .photo-item {
     width: 100%;
     height: 200px;
-    margin-top: 0; /* Reset posiciones */
+    margin-top: 0;
+    /* Reset posiciones */
   }
 }
 
 
-/* ===== SECCIÓN ITINERARIO ===== */
-.itinerary-section {
-  background: #faf7f5;
-  padding: 50px 20px;
+/* ===== SECCIÓN PADRINOS ===== */
+.padrinos-section {
+  position: relative;
+  background: linear-gradient(180deg, #FFF, #f1f1f1);
+  padding: 80px 20px;
   text-align: center;
   font-family: 'Cormorant Garamond', serif;
+  overflow: hidden;
+  margin-bottom: 80px;
 }
 
-.itinerary-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #333;
+.padrinos-header h2 {
+  font-size: 2.8rem;
+  color: #444;
+  margin-bottom: 10px;
   font-weight: bold;
   letter-spacing: 1px;
 }
 
-/* Timeline */
-.timeline {
-  position: relative;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px 0;
+.padrinos-header .subtitle {
+  font-size: 1.2rem;
+  color: #777;
+  font-style: italic;
+  margin-bottom: 40px;
 }
 
-/* Línea central */
-.timeline .line {
+/* Nombres */
+.padrinos-content {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.padrino-nombre {
+  font-size: 1.6rem;
+  color: #2c2c2c;
+  position: relative;
+  padding: 10px 20px;
+  font-weight: 500;
+}
+
+.padrino-nombre::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 2px;
+  margin: 8px auto 0;
+  background: #b08f5a;
+  border-radius: 2px;
+}
+
+/* Decoraciones florales */
+.floral-deco {
   position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #ddd;
-  transform: translateX(-50%);
+  width: 180px;
+  height: 180px;
+  background: url('images/flor-amarilla.png') no-repeat center center/contain;
+  opacity: 0.4;
+}
+
+.deco-left {
+  top: 10%;
+  left: -40px;
+}
+
+.deco-right {
+  bottom: 10%;
+  right: -40px;
+  transform: rotate(180deg);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .padrinos-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .padrinos-content {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .padrino-nombre {
+    font-size: 1.3rem;
+  }
+}
+
+
+/* 📷 Masonry Gallery estilo Pinterest */
+.gallery-masonry {
+  padding: 60px 20px;
+  background: #fafafa;
+  text-align: center;
+}
+
+.gallery-masonry h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-family: "Cormorant Garamond", serif;
+  color: #333;
+}
+
+/* Masonry layout */
+.masonry {
+  column-count: 4;
+  column-gap: 15px;
+}
+
+.masonry-item {
+  margin-bottom: 15px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  break-inside: avoid;
+  transition: transform 0.4s ease;
+}
+
+.masonry-item img {
+  width: 100%;
+  display: block;
+  border-radius: 15px;
+  transition: transform 0.5s ease;
+}
+
+/* Hover elegante */
+.masonry-item:hover img {
+  transform: scale(1.08);
+}
+
+/* Responsivo */
+@media (max-width: 1200px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry {
+    column-count: 1;
+  }
+}
+
+/* Fondo general con degradado */
+.timeline-section {
+  background-color: #F1F1F1;
+  padding: 5rem 2rem;
   overflow: hidden;
 }
 
-.timeline .line::after {
-  content: "";
+/* Título */
+.timeline-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: 'Georgia', serif;
+  color: #000;
+  margin-bottom: 4rem;
+}
+
+/* Contenedor */
+.timeline-container {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 2rem;
+}
+
+/* Línea central */
+.timeline-line {
   position: absolute;
   top: 0;
+  left: 25px;
+  width: 4px;
+  height: 100%;
+  background: #ddd;
+}
+
+.timeline-line::after {
+  content: "";
+  position: absolute;
   left: 0;
+  top: 0;
   width: 100%;
   height: 0;
-  background: linear-gradient(to bottom, #b08f5a, #d4af7f);
-  transition: height 0.4s ease;
+  background: linear-gradient(to bottom, #2d5c21, #2d5c21);
+  transition: height 0.3s ease;
 }
 
-/* Item */
+/* Items */
 .timeline-item {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 20px 0;
   position: relative;
+  margin-bottom: 3rem;
+  padding-left: 3rem;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
 }
 
-.timeline-item:nth-child(even) {
-  flex-direction: row-reverse;
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.timeline-icon {
-  width: 50px;
-  height: 50px;
-  background: #fff;
-  border: 2px solid #b08f5a;
+/* Círculos con íconos */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 0.2rem;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  background: #2d5c21;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #b08f5a;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  color: white;
+  font-size: 16px;
+}
+
+/* Iconos */
+.timeline-item[data-icon="fa-guitar"]::before {
+  content: "\f7a6";
+}
+
+.timeline-item[data-icon="fa-church"]::before {
+  content: "\f51d";
+}
+
+.timeline-item[data-icon="fa-camera"]::before {
+  content: "\f030";
+}
+
+.timeline-item[data-icon="fa-wine-glass-alt"]::before {
+  content: "\f5ce";
+}
+.timeline-item[data-icon="fa-face-smile"]::before {
+  content: "\f118";
+}
+
+.timeline-item[data-icon="fa-martini-glass"]::before {
+  content: "\f57b";
+}
+
+.timeline-item[data-icon="fa-cake-candles"]::before {
+  content: "\f1fd";
+}
+
+.timeline-item[data-icon="fa-utensils"]::before {
+  content: "\f2e7";
+}
+
+.timeline-item[data-icon="fa-ring"]::before {
+  content: "\f70b";
+}
+
+.timeline-item[data-icon="fa-music"]::before {
+  content: "\f001";
+}
+
+.timeline-item[data-icon="fa-birthday-cake"]::before {
+  content: "\f1fd";
+}
+
+.timeline-item[data-icon="fa-heart"]::before {
+  content: "\f004";
+}
+
+/* Textos */
+.timeline-item h3 {
   font-size: 1.5rem;
-  z-index: 2;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 0.3rem 0;
 }
 
-.timeline-content {
-  background: #fff;
-  padding: 15px 20px;
-  margin: 0 15px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  text-align: left;
-  max-width: 250px;
-}
-
-.timeline-content h3 {
+.timeline-item p {
+  font-size: 1.4rem;
+  color: #555;
   margin: 0;
-  font-size: 1.1rem;
-  color: #444;
 }
 
-.timeline-content p {
-  margin: 5px 0 0;
-  font-size: 1.1rem;
-  color: #666;
-}
-
-/* ===== RESPONSIVO ===== */
-@media (max-width: 768px) {
-  .timeline {
-    padding-left: 30px;
+/* Responsivo */
+@media (max-width: 600px) {
+  .timeline-container {
+    padding-left: 1rem;
   }
 
-  .timeline-item,
-  .timeline-item:nth-child(even) {
-    flex-direction: row;
-    justify-content: flex-start;
+  .timeline-item h3 {
+    font-size: 1rem;
   }
 
-  .timeline-content {
-    max-width: 70%;
-  }
-
-  .timeline .line {
-    left: 25px;
+  .timeline-item p {
+    font-size: 0.9rem;
   }
 }
 
-.timeline .line::after {
-  height: calc(var(--line-progress, 0) * 100%);
+/* ***** FINAL INVITACIÓN ***** */
+.final-invite {
+  background: linear-gradient(10deg, #000, #000);
+  text-align: center;
+  padding: 4rem 2rem;
+  color: white;
 }
 
+.final-title {
+  font-size: 2rem;
+  font-family: 'Georgia', serif;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.final-text {
+  font-size: 1.7rem;
+  margin: 1rem 0;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.final-text:nth-of-type(1) {
+  animation-delay: 0.5s;
+}
+
+.final-text:nth-of-type(2) {
+  animation-delay: 1s;
+}
+
+.final-icon {
+  font-size: 2.5rem;
+  margin-top: 1.5rem;
+  display: inline-block;
+  opacity: 0;
+  transform: scale(0.5);
+  animation: popIn 0.8s ease forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .final-title {
+    font-size: 2rem;
+  }
+
+  .final-text {
+    font-size: 1rem;
+  }
+}

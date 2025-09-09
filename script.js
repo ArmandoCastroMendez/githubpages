@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
 /* Countdown */
 const $d = document.getElementById('days');
 const $h = document.getElementById('hours');
@@ -114,7 +113,6 @@ btn.addEventListener('keydown', (ev) => {
     if (ev.key === ' ' || ev.key === 'Enter') { ev.preventDefault(); btn.click(); }
 });
 
-
 // Inicializa la librería de animaciones AOS
 document.addEventListener("DOMContentLoaded", () => {
     AOS.init({
@@ -125,26 +123,40 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
 document.addEventListener("DOMContentLoaded", () => {
-    AOS.init({
-        once: true,
-        duration: 1000,
-        easing: "ease-in-out"
+  const line = document.querySelector(".timeline-line");
+  const items = document.querySelectorAll(".timeline-item");
+  const lineFill = line.querySelector("::after"); // no funciona directo
+
+  // Creamos CSS dinámico para la altura de la línea
+  let style = document.createElement("style");
+  document.head.appendChild(style);
+
+  const updateTimeline = () => {
+    const scrollY = window.scrollY;
+    const windowH = window.innerHeight;
+    const timelineRect = line.getBoundingClientRect();
+    const timelineTop = timelineRect.top + scrollY;
+    const maxHeight = line.offsetHeight;
+
+    // Calculamos cuánto llenar
+    let fillHeight = Math.min(maxHeight, Math.max(0, scrollY + windowH / 2 - timelineTop));
+
+    style.innerHTML = `
+      .timeline-line::after {
+        height: ${fillHeight}px;
+      }
+    `;
+
+    // Mostrar items
+    items.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top < windowH - 100) {
+        item.classList.add("visible");
+      }
     });
+  };
 
-    // Animar la línea conforme scroll
-    const line = document.querySelector(".timeline .line::after");
-    const timeline = document.querySelector(".timeline");
-    const lineEl = document.querySelector(".timeline .line");
-
-    window.addEventListener("scroll", () => {
-        const rect = timeline.getBoundingClientRect();
-        const winHeight = window.innerHeight;
-
-        // Calcular progreso
-        let progress = Math.min(1, Math.max(0, (winHeight - rect.top) / (rect.height + winHeight)));
-        lineEl.style.setProperty("--line-progress", progress);
-    });
+  window.addEventListener("scroll", updateTimeline);
+  updateTimeline();
 });
-
